@@ -21,7 +21,7 @@ imgt_params={
     'url.release' : "http://www.imgt.org/download/GENE-DB/RELEASE",
     'url.readme' : "http://www.imgt.org/download/GENE-DB/README.txt",
     'Genesymbol' : [],
-    'data.chainlist' : ['TRA', 'TRB', 'BCR']
+    'data.chainlist' : ['TRA', 'TRB', 'BCR', 'TRD', 'TRG']
 }
 
 def get_species_list():
@@ -574,9 +574,9 @@ def download_ref_genome(species: str, chain: str, dropna=False, **kwargs):
     # FIXME: IN DEV
     #     TODO: CHECK THE IMGT STANDARDS TO DEFINE IG AND TR
     ref_genome_dict = dict()
-    if chain in ['TRB', 'IGH']:
+    if chain in ['TRB', 'IGH', 'TRD']:
         ref_genome_dict = download_ref_genome_VDJ(species, chain, dropna=dropna, **kwargs)
-    elif chain in ['TRA', 'IGL']:
+    elif chain in ['TRA', 'IGL', 'TRG']:
         ref_genome_dict = download_ref_genome_VJ(species, chain, dropna=dropna, **kwargs)
     else:
         ref_genome_dict = None
